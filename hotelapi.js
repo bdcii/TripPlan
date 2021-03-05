@@ -1,0 +1,1 @@
+const hotelAPIKey = "7bf1946d43dea11ede78d62bfdd8dd06";

@@ -1,6 +1,6 @@
 const weatherAPIKey = "c979757ff3364fdbc7788b954c2541a8";
 const weatherData = document.querySelector('#weather-data');
-const flightData = document.querySelector('#flight-data');
+// const flightData = document.querySelector('#flight-data');
 const searchButton = document.querySelector('#search-button');
 const datePicker = document.querySelector('.date-picker');
 const cityList = document.querySelector('#prevCity');

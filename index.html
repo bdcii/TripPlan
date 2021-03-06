@@ -15,7 +15,7 @@
       $( "#datepicker" ).datepicker();
     } );
     </script>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Trip Planner</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
     <div class=row>
 
       <div class="col-md-3 pl-2">
-          Date: <div id="datepicker"></div>
+          Date: <div id="datepicker" class="date-picker"></div>
           <br>
           <div class="card" style="width: 20rem;">
             <div class="card-body bg-light">
@@ -44,21 +44,23 @@
                   class="fas fa-search"></i></button>
               </form>
             </div>
-                <ul class="list-group">
+                <ul id="prevCity" class="list-group">
                   <li class="list-group-item">previous search</li>
                 </ul>
           </div>
       </div>
       <div class ="col-md-8">
         <div class="card">
-          <div class="card-body">
+          <div id="weather-card" class="card-body">
             <h5 class="card-title">Weather</h5>
+            <div id="weather-data"></div>
           </div>
         </div>
         <br>
         <div class="card">
-          <div class="card-body">
+          <div id="flight-card" class="card-body">
             <h5 class="card-title">Available Flights</h5>
+            <div id="flight-data"></div>
           </div>
         </div>   
       </div>
@@ -73,8 +75,8 @@
   <!-- jQuery UI <script> tag -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
-  <script src="/weatherapi.js"></script>
-  <script src="/flightapi.js"></script>
-  <script src="/hotelapi.js"></script>
+  <script src="weatherapi.js"></script>
+  <script src="flightapi.js"></script>
+  <script src="hotelapi.js"></script>
 </body>
 </html>

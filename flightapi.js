@@ -1,45 +1,43 @@
-const flightAPIKey = "a2157c756amshb130de370f4d44ep16abf7jsn25ad32462e8e";
+const flightAPIKey = "4b42a0d39fec9c53fd432a1594cb3bf5"
 const flightData = document.querySelector('#flight-data');
 const searchButtonFlight = document.querySelector('#search-button');
 const userInputFlight = document.querySelector('#city-input');
 
-fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/referral/v1.0/%7Bcountry%7D/%7Bcurrency%7D/%7Blocale%7D/%7Boriginplace%7D/%7Bdestinationplace%7D/%7Boutboundpartialdate%7D/%7Binboundpartialdate%7D?shortapikey=ra66933236979928&apiKey=%7Bshortapikey%7D", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": flightAPIKey,
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
+
 
 
 // This function is a container to call other functions
-function displayCityWeather(event) {
+function displayFlights(event) {
     event.preventDefault();
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput.value}&appid=${weatherAPIKey}`)
+    fetch(`http://api.aviationstack.com/v1/cities?access_key=4b42a0d39fec9c53fd432a1594cb3bf5`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            var latitude = data.coord.lat;
-            var longitude = data.coord.lon;
-
-            console.log(data);
-            // This fetch is for the current weather section
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,hourly,minutely,alerts&appid=${weatherAPIKey}`)
-                .then(response => response.json())
-                .then(data => {
-
-                    console.log(data);
-
-
-                })
+            
         })
 };
 
-searchButton.addEventListener('click', displayCityWeather);
+searchButton.addEventListener('click', displayFlights);
+
+
+
+$.ajax({
+    url: 'http://api.aviationstack.com/v1/cities',
+    data: {
+      access_key: flightAPIKey
+    },
+    dataType: 'json',
+    success: function(apiResponse) {
+      if (Array.isArray(apiResponse['results'])) {
+        apiResponse['results'].forEach(flight => {
+          if (!flight['live']['is_ground']) {
+            console.log(`${flight['airline']['name']} flight ${flight['flight']['iata']}`,
+                `from ${flight['departure']['airport']} (${flight['departure']['iata']})`,
+                `to ${flight['arrival']['airport']} (${flight['arrival']['iata']}) is in the air.`);
+          }
+        });
+      }
+    }
+  });
+

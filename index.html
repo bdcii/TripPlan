@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
-    <script>
-    $( function() {
-      $( "#datepicker" ).datepicker();
-    } );
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <title>Trip Planner</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <title>Trip Planner</title>
 </head>
+
 <body>
-  
-  <div class = "p-4 bg-dark text-light">
-    <div class = "container text-center">
-    <h1>Trip Planner</h1>
+
+  <div class="p-4 bg-dark text-light">
+    <div class="container text-center">
+      <h1>Trip Planner</h1>
     </div>
   </div>
 
@@ -31,29 +33,105 @@
     <div class=row>
 
       <div class="col-md-3 pl-2">
-          Date: <div id="datepicker" class="date-picker"></div>
-          <br>
-          <div class="card" style="width: 20rem;">
-            <div class="card-body bg-light">
-              <h6>Search: </h6>
-              <form class="form-inline">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="city-input">
-                </div>
-                  <button id="search-button" type="submit" class="btn btn-primary"><i
-                  class="fas fa-search"></i></button>
-              </form>
-            </div>
-                <ul id="prevCity" class="list-group">
-                  <li class="list-group-item">previous search</li>
-                </ul>
+        Date: <div id="datepicker" class="date-picker"></div>
+        <br>
+        <div class="card" style="width: 20rem;">
+          <div class="card-body bg-light">
+            <h6>Search: </h6>
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" class="form-control" id="city-input">
+              </div>
+              <button id="search-button" type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </form>
           </div>
+          <ul id="prevCity" class="list-group">
+            <li class="list-group-item">previous search</li>
+          </ul>
+        </div>
       </div>
-      <div class ="col-md-8">
+      <div class="col-md-8">
         <div class="card">
           <div id="weather-card" class="card-body">
             <h5 class="card-title">Weather</h5>
-            <div id="weather-data"></div>
+
+            <h2 class="city-name"></h2>
+
+            <div class="card-deck">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-0-date"></h5>
+                  <p class="card-text day-0-icon"></p>
+                  <p class="card-text day-0-temp"></p>
+                  <p class="card-text day-0-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-1-date"></h5>
+                  <p class="card-text day-1-icon"></p>
+                  <p class="card-text day-1-temp"></p>
+                  <p class="card-text day-1-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-2-date"></h5>
+                  <p class="card-text day-2-icon"></p>
+                  <p class="card-text day-2-temp"></p>
+                  <p class="card-text day-2-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-3-date"></h5>
+                  <p class="card-text day-3-icon"></p>
+                  <p class="card-text day-3-temp"></p>
+                  <p class="card-text day-3-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-4-date"></h5>
+                  <p class="card-text day-4-icon"></p>
+                  <p class="card-text day-4-temp"></p>
+                  <p class="card-text day-4-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-5-date"></h5>
+                  <p class="card-text day-5-icon"></p>
+                  <p class="card-text day-5-temp"></p>
+                  <p class="card-text day-5-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-6-date"></h5>
+                  <p class="card-text day-6-icon"></p>
+                  <p class="card-text day-6-temp"></p>
+                  <p class="card-text day-6-humidity"></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title day-7-date"></h5>
+                  <p class="card-text day-7-icon"></p>
+                  <p class="card-text day-7-temp"></p>
+                  <p class="card-text day-7-humidity"></p>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
         <br>
@@ -62,7 +140,7 @@
             <h5 class="card-title">Available Flights</h5>
             <div id="flight-data"></div>
           </div>
-        </div>   
+        </div>
       </div>
 
     </div>
@@ -73,10 +151,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <!-- jQuery UI <script> tag -->
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <script src="weatherapi.js"></script>
   <script src="flightapi.js"></script>
   <script src="hotelapi.js"></script>
 </body>
+
 </html>

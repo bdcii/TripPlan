@@ -1,4 +1,4 @@
-// const flightAPIKey = "4b42a0d39fec9c53fd432a1594cb3bf5"
+// const flightAPIKey = 
 // const flightData = document.querySelector('#flight-data');
 // const searchButtonFlight = document.querySelector('#search-button');
 // const userInputFlight = document.querySelector('#city-input');

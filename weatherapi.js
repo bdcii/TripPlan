@@ -11,7 +11,6 @@ function getCityWeather(event) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput.value}&appid=${weatherAPIKey}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             var cityName = document.querySelector('.city-name');
             var nameVal = data.name;
             cityName.innerHTML = `${nameVal} Weather Forecast`;

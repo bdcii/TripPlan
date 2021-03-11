@@ -1,4 +1,4 @@
-const eventAPIKey = 'gE0vIThWEHkWajQ5c8zJtOurSipLrsoy';
+const eventAPIKey = '';
 const eventData = document.querySelector('#flight-data');
 const searchButtonEvent = document.querySelector('#search-button');
 const userInputEvent = document.querySelector('#city-input');
@@ -7,7 +7,7 @@ const userInputEvent = document.querySelector('#city-input');
 function displayEvents(event) {
     event.preventDefault();
 
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=gE0vIThWEHkWajQ5c8zJtOurSipLrsoy&city=${userInputEvent.value}`)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=&city=${userInputEvent.value}`)
         .then(response => response.json())
         .then(data => {
             var today = new Date();

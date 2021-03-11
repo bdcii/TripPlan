@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
   <script>
     $(function () {
@@ -20,42 +18,48 @@
     });
   </script>
   <link rel="stylesheet" href="style.css">
-  <title>Trip Planner</title>
+  <title>Entertainment Planner</title>
 </head>
 
 <body id="bg">
 
   <div id='bg' class="p-4 bg-dark text-light">
     <div class="container text-center">
-      <h1 class='h1'>Trip Planner</h1>
+      <h1 class='h1'>Entertainment Planner</h1>
     </div>
   </div>
 
-  <!--code for the search field-->
   <div class="container-fluid">
     <div class=row>
 
       <div class="col-md-3 pl-2">
+
         <div>
           <h1 id='team' class='bg-light'>15</h1>
         </div>
-        <!-- Date: <div id="datepicker" class="date-picker"></div> -->
+        
         <br>
+
         <div class="card" style="width: 20rem;">
+
           <div class="card-body bg-light">
             <h6>Search: </h6>
             <form class="form-inline">
               <div class="form-group">
                 <input type="text" class="form-control" id="city-input">
               </div>
-              <button id="search-button" type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+              <button id="search-button" type="submit" class="btn btn-primary" style="color:goldenrod;background-color: #6d8aac"><i class="fas fa-search"></i></button>
             </form>
           </div>
+
           <ul id="prevCity" class="list-group">
             <li class="list-group-item">previous search</li>
           </ul>
+
         </div>
+
       </div>
+
       <div class="col-md-8">
         <div class="card bg-light">
           <div id="weather-card" class="card-body">
@@ -141,14 +145,20 @@
           </div>
         </div>
         <br>
-        <div class="card">
-          <div id="flight-card" class="card-body">
-            <h5 class="card-title">Available Flights</h5>
-            <div id="flight-data"></div>
+
+        <div class="card" style="padding: 15px">
+          <h5 class="card-title">Events</h5>
+          <h2 class="card-title eventsTitle"></h2>
+          <div class="card-deck" style="padding:15px">
+            <div class="card" style="padding:15px">
+              <div id="flight-card" class="card-body">
+                <div id="event-data"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 
@@ -156,12 +166,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <!-- jQuery UI <script> tag -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
   <script src="weatherapi.js"></script>
   <script src="eventapi.js"></script>
-  <script src="hotelapi.js"></script>
 </body>
 
 </html>

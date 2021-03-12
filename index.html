@@ -30,17 +30,15 @@
   </div>
 
   <div class="container-fluid">
-    <div class=row>
+    <div class=row style="justify-content: center;">
 
-      <div class="col-md-3 pl-2">
+      <div class="col-md-3">
 
-        <div>
-          <h1 id='team' class='bg-light'>15</h1>
-        </div>
-        
+        <h1 id='team' class='bg-light'>15</h1>
+
         <br>
 
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 20rem">
 
           <div class="card-body bg-light">
             <h6>Search: </h6>
@@ -48,7 +46,8 @@
               <div class="form-group">
                 <input type="text" class="form-control" id="city-input" placeholder="Enter a U.S. city name">
               </div>
-              <button id="search-button" type="submit" class="btn btn-primary" style="color:goldenrod;background-color: #6d8aac"><i class="fas fa-search"></i></button>
+              <button id="search-button" type="submit" class="btn btn-primary"
+                style="color:goldenrod;background-color: #6d8aac"><i class="fas fa-search"></i></button>
             </form>
           </div>
 
@@ -60,7 +59,10 @@
 
       </div>
 
-      <div class="col-md-8">
+      <br>
+      <br>
+
+      <div class="col-md-9">
         <div class="card bg-light">
           <div id="weather-card" class="card-body">
             <h5 class="card-title">Weather</h5>
@@ -69,9 +71,11 @@
 
             <div class="card-deck">
 
+
+
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-0-date"></h5>
+                  <h5 class="card-title day-0-date date"></h5>
                   <p class="card-text day-0-icon"></p>
                   <p class="card-text day-0-temp"></p>
                   <p class="card-text day-0-humidity"></p>
@@ -80,7 +84,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-1-date"></h5>
+                  <h5 class="card-title day-1-date date"></h5>
                   <p class="card-text day-1-icon"></p>
                   <p class="card-text day-1-temp"></p>
                   <p class="card-text day-1-humidity"></p>
@@ -89,7 +93,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-2-date"></h5>
+                  <h5 class="card-title day-2-date date"></h5>
                   <p class="card-text day-2-icon"></p>
                   <p class="card-text day-2-temp"></p>
                   <p class="card-text day-2-humidity"></p>
@@ -98,16 +102,17 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-3-date"></h5>
+                  <h5 class="card-title day-3-date date"></h5>
                   <p class="card-text day-3-icon"></p>
                   <p class="card-text day-3-temp"></p>
                   <p class="card-text day-3-humidity"></p>
                 </div>
               </div>
 
+
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-4-date"></h5>
+                  <h5 class="card-title day-4-date date"></h5>
                   <p class="card-text day-4-icon"></p>
                   <p class="card-text day-4-temp"></p>
                   <p class="card-text day-4-humidity"></p>
@@ -116,7 +121,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-5-date"></h5>
+                  <h5 class="card-title day-5-date date"></h5>
                   <p class="card-text day-5-icon"></p>
                   <p class="card-text day-5-temp"></p>
                   <p class="card-text day-5-humidity"></p>
@@ -125,7 +130,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-6-date"></h5>
+                  <h5 class="card-title day-6-date date"></h5>
                   <p class="card-text day-6-icon"></p>
                   <p class="card-text day-6-temp"></p>
                   <p class="card-text day-6-humidity"></p>
@@ -134,7 +139,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title day-7-date"></h5>
+                  <h5 class="card-title day-7-date date"></h5>
                   <p class="card-text day-7-icon"></p>
                   <p class="card-text day-7-temp"></p>
                   <p class="card-text day-7-humidity"></p>
@@ -146,7 +151,7 @@
         </div>
         <br>
 
-        <div class="card" style="padding: 15px">
+        <div class="card" id="event-card" style="padding: 15px">
           <h5 class="card-title">Events</h5>
           <h2 class="card-title eventsTitle"></h2>
           <div class="card-deck" style="padding:15px">

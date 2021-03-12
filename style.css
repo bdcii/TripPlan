@@ -1,5 +1,6 @@
 #bg {
 background: linear-gradient(to right, #6d8aac, #0a101b);
+justify-content: center;
 }
 
 .h1 {

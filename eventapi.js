@@ -5,11 +5,21 @@ const userInputEvent = document.querySelector('#city-input');
 const eventTitle = document.querySelector('.eventsTitle');
 
 // Called on click and used to display the event elements pulled from the API
-function displayEvents(event) {
-    event.preventDefault();
+function displayEvents(eventOrString) {
+
+    //The displayEvents function is run via two different ways.  One is via the user input string of the city name, and one is on the click event when the previously searched cities list button is pushed.
+    //This if/else statement determines how to "get" the city name (based on whether it is accessed via the click event or string user input) when displayEvents is called.
+    if (eventOrString instanceof Event) {
+        var city = userInput.value;
+        eventOrString.preventDefault();
+    } else {
+        var city = eventOrString;
+    }
+
+    eventData.innerHTML = '';
 
     // Fetches the ticketmaster API based on the city the user inputs
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=gE0vIThWEHkWajQ5c8zJtOurSipLrsoy&city=${userInputEvent.value}`)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=gE0vIThWEHkWajQ5c8zJtOurSipLrsoy&city=${city}`)
         .then(response => response.json())
         .then(data => {
 
@@ -21,7 +31,7 @@ function displayEvents(event) {
                 //This variable is getting the event date from the API
                 var eventDate = data._embedded.events[i].dates.start.localDate;
                 if (isWithinTimeSpan(eventDate, today, 8)) {
-                    
+                  
                     var div1 = document.createElement("div");
                     var div2 = document.createElement("div");
                     var div3 = document.createElement("div");
@@ -30,16 +40,21 @@ function displayEvents(event) {
                     div1.innerHTML = `<h4>Event Name: ${data._embedded.events[i].name}</h4>`;
                     div2.innerHTML = `<p style="font-size:20px">Event Date: ${data._embedded.events[i].dates.start.localDate}</p>`;
                     div3.innerHTML = `<img src = ${data._embedded.events[i].images[0].url} style="height:200px"></img><br><br>`;
-                    div4.innerHTML = `<a href = "${data._embedded.events[i].url}" style="font-size:20px" target="_blank">Get tickets here</a><br><br>`;
-                    eventTitle.innerHTML = `${userInputEvent.value} Events`;
+                    div4.innerHTML = `<a href = "${data._embedded.events[i].url}" style="font-size:25px" target="_blank">Get Tickets Here</a><br><br>`;
+                    eventTitle.innerHTML = `${city} Events`;
 
                     eventData.appendChild(div1);
                     eventData.appendChild(div2);
                     eventData.appendChild(div3);
                     eventData.appendChild(div4);
-                
-                }
+
+                } 
             };
+            if (eventData.innerHTML == "") {
+                var div5 = document.createElement("div");
+                div5.innerHTML = `<h5>No Events Occuring This Week</h5>`;
+                eventData.appendChild(div5);
+            }
         });
 };
 

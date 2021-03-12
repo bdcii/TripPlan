@@ -114,8 +114,8 @@ function displayWeekForecast(data) {
             var humidValue0 = data.daily[0].humidity;
             cardDate0.innerHTML = moment.unix(data.daily[0].dt).format("M/DD/YYYY");
             cardIcon0.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png">`;
-            cardTemp0.innerHTML = `Temperature: ${tempValue0} °F`;
-            cardHum0.innerHTML = `Humidity: ${humidValue0}%`;
+            cardTemp0.innerHTML = `Temperature:<br> ${tempValue0} °F`;
+            cardHum0.innerHTML = `Humidity:<br> ${humidValue0}%`;
 
             //Day One
             var tempValue1 = data.daily[1].temp.day;

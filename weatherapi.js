@@ -1,20 +1,65 @@
 const weatherAPIKey = "c979757ff3364fdbc7788b954c2541a8";
 const searchButton = document.querySelector('#search-button');
 const datePicker = document.querySelector('.date-picker');
-const cityList = document.querySelector('#prevCity');
-const userInput = document.querySelector('#city-input')
+// const cityList = document.querySelector('#prevCity');
+const userInput = document.querySelector('#city-input');
+var cityList =[];
+
+var cityStorage = localStorage;
+
+
+function retrievePrevSearch() {
+    if (cityStorage.getItem("pastCitySearch") != undefined) {
+        cityList = JSON.parse(cityStorage.getItem("pastCitySearch"));
+        console.log(cityList);
+      
+          
+            var newRecentSearchLink = $("<a href=\"\#\"></a>");
+            newRecentSearchLink.attr("data-city", cityList[cityList.length-1]);
+            newRecentSearchLink.text(cityList[cityList.length-1]);
+            newRecentSearchLink.attr("id", 'recentSearchItemID');
+            newRecentSearchLink.attr("class", "recentSearchItem list-group-item list-group-item-action");
+            $("#prevCity").prepend(newRecentSearchLink);
+        
+    }
+}
+
+
+
+//function to save city search to local storage
+function savePrevSearch(){
+    cityStorage.setItem("pastCitySearch", JSON.stringify(cityList));
+}
 
 // This function fetches the API based on the user city input and then calls the week's forecast function
-function getCityWeather(event) {
-    event.preventDefault();
+function getCityWeather(eventOrString) {
+    //we utilize the getCityWeather function two ways in our js file.  One is via user input string, and one is on a click event.
+    //the if/else statement determines how to get the city name(whether it is an event or string) when getCityWeather is called.
+    if(eventOrString instanceof Event){
+        var city = userInput.value; 
+        eventOrString.preventDefault();
+    } else {
+        var city = eventOrString;
+    }
+    
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput.value}&appid=${weatherAPIKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAPIKey}`)
         .then(response => response.json())
         .then(data => {
             var cityName = document.querySelector('.city-name');
             var nameVal = data.name;
             cityName.innerHTML = `${nameVal} Weather Forecast`;
 
+            cityList.push(nameVal);
+            savePrevSearch();
+
+//call function to retrieve data from local storage
+
+//we utilize the getCityWeather function two ways in our js file.  One is via user input string, and one is on a click event.
+    //the if/else statement determines how to get the city name(whether it is an event or string) when getCityWeather is called.
+            if(eventOrString instanceof Event){
+                retrievePrevSearch();
+            } 
             displayWeekForecast(data);
         })
 };
@@ -133,7 +178,15 @@ function displayWeekForecast(data) {
             cardTemp7.innerHTML = `Temperature: ${tempValue7} °F`;
             cardHum7.innerHTML = `Humidity: ${humidValue7}%`;
         });
+
 };
+
+$(document).on('click', "#recentSearchItemID", function() {
+    console.log('test');
+    console.log(this.dataset.city);
+    getCityWeather(this.dataset.city);
+   
+})
 
 // Listens for the search button click to then call the getCity Weather function
 searchButton.addEventListener('click', getCityWeather);

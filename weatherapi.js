@@ -1,47 +1,42 @@
 const weatherAPIKey = "c979757ff3364fdbc7788b954c2541a8";
 const searchButton = document.querySelector('#search-button');
 const datePicker = document.querySelector('.date-picker');
-// const cityList = document.querySelector('#prevCity');
 const userInput = document.querySelector('#city-input');
-var cityList =[];
 
+var cityList = [];
 var cityStorage = localStorage;
 
-
+// When the user searches for a city, this function adds it to the list of previously searched cities in the form of a clickale button.
 function retrievePrevSearch() {
     if (cityStorage.getItem("pastCitySearch") != undefined) {
         cityList = JSON.parse(cityStorage.getItem("pastCitySearch"));
-        console.log(cityList);
-      
-          
-            var newRecentSearchLink = $("<a href=\"\#\"></a>");
-            newRecentSearchLink.attr("data-city", cityList[cityList.length-1]);
-            newRecentSearchLink.text(cityList[cityList.length-1]);
-            newRecentSearchLink.attr("id", 'recentSearchItemID');
-            newRecentSearchLink.attr("class", "recentSearchItem list-group-item list-group-item-action");
-            $("#prevCity").prepend(newRecentSearchLink);
-        
-    }
-}
 
+        var newRecentSearchLink = $("<a href=\"\#\"></a>");
+        newRecentSearchLink.attr("data-city", cityList[cityList.length - 1]);
+        newRecentSearchLink.text(cityList[cityList.length - 1]);
+        newRecentSearchLink.attr("id", 'recentSearchItemID');
+        newRecentSearchLink.attr("class", "recentSearchItem list-group-item list-group-item-action");
+        $("#prevCity").prepend(newRecentSearchLink);
+    };
+};
 
-
-//function to save city search to local storage
-function savePrevSearch(){
+// This function saves the city search to local storage.
+function savePrevSearch() {
     cityStorage.setItem("pastCitySearch", JSON.stringify(cityList));
-}
+};
 
-// This function fetches the API based on the user city input and then calls the week's forecast function
+// This function fetches the API based on the user city input and then calls the week's forecast function.
 function getCityWeather(eventOrString) {
-    //we utilize the getCityWeather function two ways in our js file.  One is via user input string, and one is on a click event.
-    //the if/else statement determines how to get the city name(whether it is an event or string) when getCityWeather is called.
-    if(eventOrString instanceof Event){
-        var city = userInput.value; 
+
+    //We run the getCityWeather function two ways in our js file.  One is via the user input string of the city name, and one is on the click event when the city storage button is pushed.
+    //This if/else statement determines how to "get" the city name (based on whether it is accessed via the event or string) when getCityWeather is called.
+    if (eventOrString instanceof Event) {
+        var city = userInput.value;
         eventOrString.preventDefault();
     } else {
         var city = eventOrString;
     }
-    
+
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAPIKey}`)
         .then(response => response.json())
@@ -53,15 +48,15 @@ function getCityWeather(eventOrString) {
             cityList.push(nameVal);
             savePrevSearch();
 
-//call function to retrieve data from local storage
-
-//we utilize the getCityWeather function two ways in our js file.  One is via user input string, and one is on a click event.
-    //the if/else statement determines how to get the city name(whether it is an event or string) when getCityWeather is called.
-            if(eventOrString instanceof Event){
+            //This if/else statement says if the eventOrString is running the instance of the button click of the previously searched cities, then call the retrievePrevSearch funciton.
+            // We need this because we only want the retrievePrevSearch to run one time (in the instance of when the user originally inputs the city name). 
+            // If we didn't have this, when the user clicked the previous city button, it would keep appending that city to the previous searched button list.
+            if (eventOrString instanceof Event) {
                 retrievePrevSearch();
-            } 
+            };
+
             displayWeekForecast(data);
-        })
+        });
 };
 
 // Week forecast function that is called above within the above function of the search event listener
@@ -181,12 +176,11 @@ function displayWeekForecast(data) {
 
 };
 
-$(document).on('click', "#recentSearchItemID", function() {
-    console.log('test');
-    console.log(this.dataset.city);
+$(document).on('click', "#recentSearchItemID", function () {
     getCityWeather(this.dataset.city);
-   
-})
+    //KRSITEN TRYING TO ADD EVENTS TO LOCAL STORAGE
+    displayEvents(this.dataset.city);
+});
 
 // Listens for the search button click to then call the getCity Weather function
 searchButton.addEventListener('click', getCityWeather);

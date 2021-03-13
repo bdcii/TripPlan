@@ -12,6 +12,7 @@ function retrievePrevSearch() {
         cityList = JSON.parse(cityStorage.getItem("pastCitySearch"));
 
         var newRecentSearchLink = $("<a href=\"\#\"></a>");
+        // cityList.Length-1 prevents a city for showing up in the previously searched list multiple times
         newRecentSearchLink.attr("data-city", cityList[cityList.length - 1]);
         newRecentSearchLink.text(cityList[cityList.length - 1]);
         newRecentSearchLink.attr("id", 'recentSearchItemID');
@@ -178,7 +179,6 @@ function displayWeekForecast(data) {
 
 $(document).on('click', "#recentSearchItemID", function () {
     getCityWeather(this.dataset.city);
-    //KRSITEN TRYING TO ADD EVENTS TO LOCAL STORAGE
     displayEvents(this.dataset.city);
 });
 

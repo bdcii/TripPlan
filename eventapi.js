@@ -79,6 +79,7 @@ function getNewDateAfterNDays(currentDate, days) {
 
 // Takes in a date and formats it so that it matches the way the API formats their event date
 function formatDate(date) {
+    // .padStart is formatting the day and month to be in 2-digit formatting to match the API format.
     var dd = String(date.getDate()).padStart(2, '0');
     var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = date.getFullYear();

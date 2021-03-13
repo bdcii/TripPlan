@@ -18,13 +18,16 @@
 
 <body id="bg">
 
+  <!-- This displays our header -->
   <div id='bg' class="p-4 text-light">
     <div class="container text-center">
       <h1 class='h1'>Entertainment Planner</h1>
     </div>
   </div>
 
-  <div class="container-fluid">
+  <!-- This is a container for all of the elements below the header -->
+  <!-- Container fluid allows for mobile responsiveness -->
+  <div class="container-fluid"> 
     <div class=row style="justify-content: center;">
 
       <div class="col-md-3">
@@ -34,7 +37,7 @@
         <br>
 
         <div class="card" style="width: 20rem">
-
+          <!-- This section is the search box  -->
           <div class="card-body bg-light">
             <h6>Search: </h6>
             <form class="form-inline">
@@ -46,9 +49,8 @@
             </form>
           </div>
 
-          <ul id="prevCity" class="list-group">
-            <!-- <li class="list-group-item">previous search</li> -->
-          </ul>
+          <!-- This is the list where previously searched cities are appended -->
+          <ul id="prevCity" class="list-group"></ul>
 
         </div>
 
@@ -57,6 +59,7 @@
       <br>
       <br>
 
+      <!-- This is the weather section -->
       <div class="col-md-9">
         <div class="card bg-light">
           <div id="weather-card" class="card-body">
@@ -66,8 +69,7 @@
 
             <div class="card-deck">
 
-
-
+              <!-- These cards contain the various days of weather -->
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title day-0-date date"></h5>
@@ -146,6 +148,7 @@
         </div>
         <br>
 
+        <!-- This is the events section -->
         <div class="card" id="event-card" style="padding: 15px">
           <h5 class="card-title">Events</h5>
           <h2 class="card-title eventsTitle"></h2>
@@ -162,6 +165,7 @@
     </div>
   </div>
 
+  <!-- These are scripts we used to link to our javascript pages and various other libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>

@@ -42,3 +42,15 @@ This screenshot shows the page when a city is chosen:
 <br>
 
 ![6](Images/6.png)
+
+## Future Developments
+
+In the future we would like to add the following features:
+
+- Flight information for travel booking
+
+- Hotels for booking accomodations 
+
+- Restuarant information for additional leisure activities
+
+- Update to make mobile experience even more user friendly

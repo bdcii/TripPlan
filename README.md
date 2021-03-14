@@ -54,3 +54,16 @@ In the future we would like to add the following features:
 - Restuarant information for additional leisure activities
 
 - Update to make mobile experience even more user friendly
+
+## Installation
+Clone the repository at https://github.com/bdcii/TripPlan and load it on
+code editor of your choice. Vscode is the prefered editor.
+
+## Credits
+Kristen Picard https://github.com/kristenpicard
+
+Darrel Chess https://github.com/bdcii
+
+## License
+MIT License
+![test](https://img.shields.io/apm/l/test)

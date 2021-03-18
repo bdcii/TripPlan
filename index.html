@@ -2,32 +2,62 @@
 <html lang="en">
 
 <head>
+  <!-- =================== -->
+  <!-- Samuel Maddox Notes -->
+  <!-- =================== -->
+  <!-- Personal preference, I like grouping my head elements and add header comments -->
+  <!-- =================== -->
+  <!-- End Samuel Notes    -->
+  <!-- =================== -->
+
+  <!-- Meta Tags -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
+  
   <title>Entertainment Planner</title>
 </head>
+
+
+<!-- =================== -->
+<!-- Samuel Maddox Notes -->
+<!-- =================== -->
+<!-- 
+  Make use of semantic tags. <header>, <main>, <ul> & <li>, etc. The changes I make below might  
+  break the app if you have styles or scripts that rely on tags being divs. Some tags will require
+  further styles to overwrite defaults (see ol tags will need styling to overwrite defaults).
+
+  Good job on indentation and providing comments. That helps significantly with the readability 
+  of this document
+-->
+<!-- =================== -->
+<!-- End Samuel Notes    -->
+<!-- =================== -->
 
 <body id="bg">
 
   <!-- This displays our header -->
-  <div id='bg' class="p-4 text-light">
+  <header id='bg' class="p-4 text-light">
     <div class="container text-center">
       <h1 class='h1'>Entertainment Planner</h1>
     </div>
-  </div>
+  </header>
 
   <!-- This is a container for all of the elements below the header -->
   <!-- Container fluid allows for mobile responsiveness -->
-  <div class="container-fluid"> 
+  <main class="container-fluid"> 
     <div class=row style="justify-content: center;">
 
       <div class="col-md-3">
@@ -36,7 +66,7 @@
 
         <br>
 
-        <div class="card" style="width: 20rem">
+        <section class="card" style="width: 20rem">
           <!-- This section is the search box  -->
           <div class="card-body bg-light">
             <h6>Search: </h6>
@@ -52,7 +82,7 @@
           <!-- This is the list where previously searched cities are appended -->
           <ul id="prevCity" class="list-group"></ul>
 
-        </div>
+        </section>
 
       </div>
 
@@ -61,95 +91,106 @@
 
       <!-- This is the weather section -->
       <div class="col-md-9">
-        <div class="card bg-light">
+        <section class="card bg-light">
           <div id="weather-card" class="card-body">
             <h5 class="card-title">Weather</h5>
 
             <h2 class="city-name"></h2>
 
-            <div class="card-deck">
+            <ol class="card-deck">
+
+              <!-- =================== -->
+              <!-- Samuel Maddox Notes -->
+              <!-- =================== -->
+              <!-- 
+                It would probably be more efficient to create these cards dynamically using 
+                JavaScript. Easier to maintain and modify. See javascript comments for more details.
+              -->
+              <!-- =================== -->
+              <!-- End Samuel Notes    -->
+              <!-- =================== -->
 
               <!-- These cards contain the various days of weather -->
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-0-date date"></h5>
                   <p class="card-text day-0-icon"></p>
                   <p class="card-text day-0-temp"></p>
                   <p class="card-text day-0-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-1-date date"></h5>
                   <p class="card-text day-1-icon"></p>
                   <p class="card-text day-1-temp"></p>
                   <p class="card-text day-1-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-2-date date"></h5>
                   <p class="card-text day-2-icon"></p>
                   <p class="card-text day-2-temp"></p>
                   <p class="card-text day-2-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-3-date date"></h5>
                   <p class="card-text day-3-icon"></p>
                   <p class="card-text day-3-temp"></p>
                   <p class="card-text day-3-humidity"></p>
                 </div>
-              </div>
+              </li>
 
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-4-date date"></h5>
                   <p class="card-text day-4-icon"></p>
                   <p class="card-text day-4-temp"></p>
                   <p class="card-text day-4-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-5-date date"></h5>
                   <p class="card-text day-5-icon"></p>
                   <p class="card-text day-5-temp"></p>
                   <p class="card-text day-5-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-6-date date"></h5>
                   <p class="card-text day-6-icon"></p>
                   <p class="card-text day-6-temp"></p>
                   <p class="card-text day-6-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="card">
+              <li class="card">
                 <div class="card-body">
                   <h5 class="card-title day-7-date date"></h5>
                   <p class="card-text day-7-icon"></p>
                   <p class="card-text day-7-temp"></p>
                   <p class="card-text day-7-humidity"></p>
                 </div>
-              </div>
+              </li>
 
-            </div>
+            </ol>
           </div>
-        </div>
+        </section>
         <br>
 
         <!-- This is the events section -->
-        <div class="card" id="event-card" style="padding: 15px">
+        <section class="card" id="event-card" style="padding: 15px">
           <h5 class="card-title">Events</h5>
           <h2 class="card-title eventsTitle"></h2>
           <div class="card-deck" style="padding:15px">
@@ -159,11 +200,24 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
       </div>
-    </div>
+    </main>
   </div>
+
+
+  <!-- =================== -->
+  <!-- Samuel Maddox Notes -->
+  <!-- =================== -->
+  <!-- 
+    In the below block of code I'm seeing multiple imports of jquery, and they're different versions.
+    This may cause conflicts and unexpected bugs. Also, some of these scripts also apear in the 
+    header. A general cleanup would be advisable.
+  -->
+  <!-- =================== -->
+  <!-- End Samuel Notes    -->
+  <!-- =================== -->
 
   <!-- These are scripts we used to link to our javascript pages and various other libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
